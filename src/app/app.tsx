@@ -1,16 +1,17 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
+import { useCreateVideoStore, VideoStoreContext } from './store/video-store-context';
+import VideoGrid from './components/video-grid';
+import Layout from './components/layout';
+import VideoPlayer from './components/video-player';
 
-import NxWelcome from './nx-welcome';
-
-export function App() {
+export default function App() {
+	const store = useCreateVideoStore();
+	
   return (
-    <>
-      <NxWelcome title="seznam-video" />
-
-      <div />
-    </>
+		<VideoStoreContext.Provider value={store}>
+			<Layout>
+        <VideoGrid />
+      </Layout>
+			<VideoPlayer />
+		</VideoStoreContext.Provider>
   );
 }
-
-export default App;

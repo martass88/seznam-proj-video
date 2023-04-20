@@ -1,0 +1,59 @@
+$text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.4), 10px 10px 20px rgb(0, 0, 0, 0.4);
+
+.item {
+	position: relative;
+  padding: 1rem;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+  background-blend-mode: multiply;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 12px;
+	cursor: pointer;
+
+	> h2 {
+    color: #fff;
+		opacity: 0.7;
+    line-height: 125%;
+		padding: 0;
+		position: relative;
+		top: -1rem;
+		transition: 80ms ease-in-out 80ms;		
+		text-shadow: $text-shadow;
+  }
+
+	> .playIcon {
+		position: absolute;
+		bottom: 1rem;
+		left: 0;
+		display: flex;
+    align-items: center;
+		width: 100%;
+		color: #fff;
+		text-shadow: $text-shadow;
+		font-size: 8rem;
+		opacity: 0;
+		transition: 80ms ease-in-out 80ms;
+	}
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+
+    > h2 {
+      color: #fff;
+			position: relative;
+			top: -1.4rem;	
+			opacity: 0.9;			
+    }
+
+		> .playIcon {
+			opacity: 0.25;
+		}
+  }
+	
+}

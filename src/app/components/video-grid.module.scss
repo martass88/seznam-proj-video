@@ -1,0 +1,13 @@
+.grid {
+	display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 8px;
+	margin-top: 4rem;
+	padding: 0 8px;
+}
+
+.noData {
+	margin-top: 5rem;	
+	text-align: center;
+	color: #bbb;
+}

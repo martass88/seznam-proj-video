@@ -1,0 +1,27 @@
+.searchInput {
+	background-color: #050505;
+	border: 0;
+	padding: 0.4rem 0.5rem;
+	font-size: 1.1rem;
+	color: #ddd;
+	border-radius: 8px;
+	overflow: hidden;
+	width: 15rem;
+	opacity: 0.8;
+	transition: 80ms ease 0s;
+
+	&:focus {
+		outline-width: 0;
+		opacity: 1;
+		width: 25rem;
+	}
+
+	&:hover {
+		outline-width: 0;
+		opacity: 1;
+	}
+
+	&::placeholder {
+		color: #444;
+	}
+}
