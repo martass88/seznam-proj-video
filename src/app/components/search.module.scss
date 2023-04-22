@@ -8,12 +8,13 @@
 	overflow: hidden;
 	width: 15rem;
 	opacity: 0.8;
-	transition: 80ms ease 0s;
+	transition: 80ms ease 0;
 
 	&:focus {
 		outline-width: 0;
 		opacity: 1;
 		width: 25rem;
+		box-shadow: 0 0 48px -2px rgba(255 255 255 / 36%);
 	}
 
 	&:hover {

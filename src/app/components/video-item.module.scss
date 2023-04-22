@@ -1,11 +1,11 @@
-$text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.4), 10px 10px 20px rgb(0, 0, 0, 0.4);
+$text-shadow: 10px 10px 20px rgb(0 0 0 / 40%), 10px 10px 20px rgb(0 0 0 / 40%);
 
 .item {
 	position: relative;
   padding: 1rem;
   background-size: cover;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0 0 0 / 70%);
   min-height: 200px;
   display: flex;
   align-items: center;
@@ -42,7 +42,8 @@ $text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.4), 10px 10px 20px rgb(0, 0, 0, 0.4)
 	}
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0 0 0 / 40%);
+		box-shadow: 0 0 30px -2px rgba(255 255 255 / 26%);
 
     > h2 {
       color: #fff;

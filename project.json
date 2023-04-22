@@ -88,6 +88,13 @@
           "codeCoverage": true
         }
       }
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["**/*.scss"]
+      }
     }
   },
   "tags": []
