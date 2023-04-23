@@ -34,8 +34,8 @@ export function createVideoStore() {
 	const setSortEvent$ = new BehaviorSubject<Sort>('NAME_ASC');
   const sort$ = setSortEvent$.asObservable();
 
-	const setSearchQueryEvent$ = new BehaviorSubject<string>('');
-  const searchQuery$ = setSearchQueryEvent$.asObservable();
+	const setsearchTermEvent$ = new BehaviorSubject<string>('');
+  const searchTerm$ = setsearchTermEvent$.asObservable();
 
 	const setSelectedVideoEvent$ = new BehaviorSubject<IVideo | null>(null);
   const selectedVideo$ = setSelectedVideoEvent$.asObservable();
@@ -43,10 +43,10 @@ export function createVideoStore() {
 	const filteredVideos$: Observable<IVideo[]> = combineLatest([
 		allVideos$,
 		sort$,
-		searchQuery$,
+		searchTerm$,
 	]).pipe(
-		map(([allVideos, sort, searchQuery]) => {
-			const filtered: IVideo[] = [...allVideos].filter((video: IVideo) => video.name.toLowerCase().includes(searchQuery.toLocaleLowerCase()));
+		map(([allVideos, sort, searchTerm]) => {
+			const filtered: IVideo[] = [...allVideos].filter((video: IVideo) => video.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()));
 			const sorted: IVideo[] = filtered.sort((a, b) => sort === 'NAME_ASC' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
 			return sorted;
 		}),
@@ -60,12 +60,13 @@ export function createVideoStore() {
     state: {
 			filteredVideos: withInitialValue(filteredVideos$, [] as IVideo[]),
 			sort: withInitialValue(sort$, 'NAME_ASC'),
+			searchTerm: withInitialValue(searchTerm$, ''),
 			selectedVideo: withInitialValue(selectedVideo$, null),
     },
     actions: {
 			fetchVideos: () => { fetchVideosEvent$.next(); console.log('fetching'); },
 			setSort: (sort: Sort) => setSortEvent$.next(sort),
-			setSearchQuery: (query: string) => setSearchQueryEvent$.next(query),
+			setsearchTerm: (query: string) => setsearchTermEvent$.next(query),
 			setSelectedVideo: (video: IVideo | null) => setSelectedVideoEvent$.next(video),
     },
   };

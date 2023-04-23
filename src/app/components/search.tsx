@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { BehaviorSubject, debounceTime, distinctUntilChanged, tap } from 'rxjs';
 import classes from './search.module.scss';
 
-export function Search({ onSearch }: any) {
+export default function Search({ onSearch }: any) {
   const [search, setSearch] = useState('');
   const search$ = useMemo(() => new BehaviorSubject(''), []);
 
@@ -29,5 +29,3 @@ export function Search({ onSearch }: any) {
 			value={search} />
   );
 }
-
-export default Search;

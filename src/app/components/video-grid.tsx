@@ -6,7 +6,7 @@ import { useVideoStore } from '../store/video-store-context';
 import { useEffect } from 'react';
 import { useObservable } from '../utils/observable-utils';
 
-export function VideoGrid() {
+export default function VideoGrid() {
 	
 	const { data, state, actions } = useVideoStore();
 	const videos = useObservable<IVideo[]>(state.filteredVideos);
@@ -26,5 +26,3 @@ export function VideoGrid() {
 
 	return <div className={classes.noData}>No video has been found.</div>;
 }
-
-export default VideoGrid;

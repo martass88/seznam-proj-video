@@ -5,7 +5,7 @@ import Search from './search';
 import { useVideoStore } from '../store/video-store-context';
 import { useObservable } from '../utils/observable-utils';
 
-export function FilterBar() {
+export default function FilterBar() {
 	const { state, actions } = useVideoStore();
   const sort = useObservable(state.sort);
 
@@ -13,12 +13,10 @@ export function FilterBar() {
 
   return (
     <header className={classes.bar}>
-			<Search onSearch={(query: string) => actions.setSearchQuery(query)} />
+			<Search onSearch={(term: string) => actions.setsearchTerm(term)} />
 			<button onClick={handleSortClick}>
 				{sort === 'NAME_ASC' ? <BiSortAZ /> : <BiSortZA />}
 			</button>
     </header>
   );
 }
-
-export default FilterBar;
