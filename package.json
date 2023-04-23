@@ -7,10 +7,10 @@
     "build": "nx build",
     "test": "nx test",
 		"predeploy" : "npm run build",
-		"deploy" : "gh-pages -d dist"
+		"deploy" : "gh-pages -d dist/seznam-video"
   },
   "private": true,
-	"homepage": "http://martass88.github.io/seznam-proj-video",
+	"homepage": "https://martass88.github.io/seznam-proj-video",
   "dependencies": {
     "nanoid": "^4.0.2",
     "normalize.css": "^8.0.1",
