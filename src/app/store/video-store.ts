@@ -89,10 +89,7 @@ export function createVideoStore() {
       selectedVideo: withInitialValue(selectedVideo$, null),
     },
     actions: {
-      fetchVideos: () => {
-        fetchVideosEvent$.next();
-        console.log('fetching');
-      },
+      fetchVideos: () => fetchVideosEvent$.next(),
       setSort: (sort: Sort) => setSortEvent$.next(sort),
       setsearchTerm: (query: string) => setsearchTermEvent$.next(query),
       setSelectedVideo: (video: IVideo | null) => setSelectedVideoEvent$.next(video),
