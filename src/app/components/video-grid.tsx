@@ -16,7 +16,7 @@ export default function VideoGrid() {
 
 	useEffect(() => {
 		actions.fetchVideos();
-	});
+	}, [actions])
 
 	if (fetchStatus === 'FETCHING') {
 		return <PuffLoader className={classes.loader} size="200px" />;
