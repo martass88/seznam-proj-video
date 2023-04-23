@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { BehaviorSubject, debounceTime, distinctUntilChanged, tap } from 'rxjs';
 import classes from './search.module.scss';
 
-export default function Search({ onSearch }: any) {
+export default function Search({ onSearch }: { onSearch: (term: string) => void }) {
   const [search, setSearch] = useState('');
   const search$ = useMemo(() => new BehaviorSubject(''), []);
 
   useEffect(() => {
     search$.next(search);
-  }, [search]);
+  });
 
   useEffect(() => {
     const subscription = search$
@@ -18,7 +18,7 @@ export default function Search({ onSearch }: any) {
 				tap((value) => onSearch(value)),
 			).subscribe();
     return () => subscription.unsubscribe();
-  }, []);
+  });
 
   return (
 		<input 

@@ -4,10 +4,11 @@ import { BiSortAZ, BiSortZA } from 'react-icons/bi';
 import Search from './search';
 import { useVideoStore } from '../store/video-store-context';
 import { useObservable } from '../utils/observable-utils';
+import { Sort } from '../store/video-store';
 
 export default function FilterBar() {
 	const { state, actions } = useVideoStore();
-  const sort = useObservable(state.sort);
+  const sort = useObservable<Sort>(state.sort);
 
 	const handleSortClick = () => actions.setSort(sort === 'NAME_ASC' ? 'NAME_DESC' : 'NAME_ASC');
 
